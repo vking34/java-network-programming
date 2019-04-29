@@ -1,8 +1,6 @@
 package client;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -51,6 +49,7 @@ public class DnsClient {
                 // Convert receiving byte array into String
                 answer = new String(incoming.getData(), 0, incoming.getLength());
                 System.out.println("Received answer: " + answer);
+                presentAnswer(answer);
             }
         } catch (IOException e) {
             System.err.println(e);
@@ -69,5 +68,34 @@ public class DnsClient {
         Scanner in = new Scanner(System.in);
         int option = in.nextInt();
         return option;
+    }
+
+    private static void presentAnswer(String answer){
+
+        String[] fields = answer.split("#");
+
+        switch (fields[2]){
+            case "00":
+            case "01":
+                break;
+            case "11":
+                System.out.println("The message was in wrong format.");
+                return;
+        }
+
+        fields[fields.length - 1] = fields[fields.length - 1].replace("!", "");
+        Integer answerCount = Integer.valueOf(fields[3]);
+
+        int i = 0;
+        while (i < answerCount){
+            System.out.println(String.format("Answer %d:", i + 1));
+            if (fields[2].equals("00"))
+                System.out.println(String.format(" Domain name: %s, record type: %s, class: %s -> IP address: %s", fields[4 + 4*i], fields[5 + 4*i], fields[6 + 4*i], fields[7 + 4*i]));
+            else
+                System.out.println(String.format(" IP address: %s, record type: PTR, class: %s -> Domain name: %s", fields[4 + 4*i], fields[6 + 4*i], fields[7 + 4*i].substring(0, fields[7 + 4*i].length() - 1)));
+
+            i++;
+        }
+
     }
 }

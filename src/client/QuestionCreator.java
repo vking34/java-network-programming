@@ -29,35 +29,46 @@ class QuestionCreator {
         question.append(String.valueOf(questionCount));
 
         int i = questionCount;
+        int count = 1;
         while (i > 0) {
             question.append("#");
+            System.out.println(String.format("Quenstion %d:", count));
             if (option == 1){
                 System.out.print("Enter domain name: ");
                 String domainName = br.readLine();
                 question.append(domainName);
             }
             else {
-                System.out.print("Enter IP: ");
+                System.out.print(" Enter IP: ");
                 String ipAddress = br.readLine();
                 question.append(ipAddress);
             }
 
             question.append("#");
 
-            System.out.print("Enter record type (A): ");
-            String recordType = br.readLine();
-            if (recordType.equals(""))
-                recordType = "A";
+            String recordType;
+            if (option == 1){
+                System.out.print(" Enter record type (A): ");
+                recordType = br.readLine();
+                if (recordType.equals(""))
+                    recordType = "A";
+            }
+            else {
+                System.out.println(" PTR records for reverse names. So record type: PTR");
+                recordType = "PTR";
+            }
+
             question.append(recordType);
             question.append("#");
 
-            System.out.print("Enter record class (IN): ");
+            System.out.print(" Enter record class (IN): ");
             String recordClass = br.readLine();
 
             if (recordClass.equals(""))
                 recordClass = "IN";
             question.append(recordClass);
 
+            count++;
             i--;
         }
         question.append("!");

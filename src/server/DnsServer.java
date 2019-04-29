@@ -35,9 +35,12 @@ public class DnsServer {
 
                 // Lấy dữ liệu khỏi gói tin nhận
                 String message = new String(incoming.getData(), 0, incoming.getLength());
-                System.out.println("Received: " + message);
+                System.out.println("-------------------------------------------");
+                System.out.println("Received message: " + message);
 
                 answer = AnswerCreator.createAnswer(connection, message);
+                System.out.println("Answer message: " + answer);
+                System.out.println("-------------------------------------------");
                 byte[] data = answer.getBytes();
 
                 // Create the answer packet then send back to client
