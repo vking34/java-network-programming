@@ -1,26 +1,24 @@
 package server;
 
-import com.mysql.cj.jdbc.Driver;
 import org.xbill.DNS.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Properties;
 
-public class AnswerCreator {
+class AnswerCreator {
 
 //    public static final String question = "902#0#00#2#www.facebook.com#CNAME#IN#outlook.com#MX#IN!";
 
 
-    public static String createAnswer(Connection connection, String question) throws TextParseException, SQLException {
+    static String createAnswer(Connection connection, String question) throws TextParseException, SQLException {
 
         StringBuilder answer = new StringBuilder();
         String addressString;
 
         String[] fields = question.split("#");
-
+        
         answer.append(fields[0]);
         answer.append("#1#00#");
         answer.append(fields[3]);

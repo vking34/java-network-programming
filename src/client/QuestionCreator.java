@@ -5,36 +5,49 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 
-public class QuestionCreator {
+class QuestionCreator {
 
     private static String getIdentification(){
         int random = (int)(Math.random()* 1024 + 1);
         return String.valueOf(random);
     }
 
-    public static String createQuestion() throws IOException {
+    static String createQuestion(int option) throws IOException {
         StringBuilder question = new StringBuilder();
+        Scanner in = new Scanner(System.in);
+        InputStreamReader isr = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(isr);
+
         question.append(getIdentification());
-        question.append("#0#00#");
+        if (option == 1)
+            question.append("#0#00#");
+        else
+            question.append("#0#01#");
 
         System.out.print("Enter question count: ");
-        Scanner in = new Scanner(System.in);
         int questionCount = in.nextInt();
         question.append(String.valueOf(questionCount));
 
         int i = questionCount;
-        InputStreamReader isr = new InputStreamReader(System.in);
-        BufferedReader br = new BufferedReader(isr);
-
         while (i > 0) {
             question.append("#");
-            System.out.print("Enter domain name: ");
-            String domainName = br.readLine();
-            question.append(domainName);
+            if (option == 1){
+                System.out.print("Enter domain name: ");
+                String domainName = br.readLine();
+                question.append(domainName);
+            }
+            else {
+                System.out.print("Enter IP: ");
+                String ipAddress = br.readLine();
+                question.append(ipAddress);
+            }
+
             question.append("#");
 
-            System.out.print("Enter record type: ");
+            System.out.print("Enter record type (A): ");
             String recordType = br.readLine();
+            if (recordType.equals(""))
+                recordType = "A";
             question.append(recordType);
             question.append("#");
 
@@ -50,4 +63,5 @@ public class QuestionCreator {
         question.append("!");
         return question.toString();
     }
+
 }

@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.util.Scanner;
 
 public class DnsClient {
 
@@ -15,13 +16,25 @@ public class DnsClient {
 
     public static void main(String[] args) throws IOException {
         DatagramSocket ds = null;
+        String question = null;
+        String answer = null;
         try {
             ds = new DatagramSocket(); // Create DatagramSocket
 
             InetAddress server = InetAddress.getByName(SERVER_IP);
-            while (true) {
-                String question = QuestionCreator.createQuestion();
-                System.out.println(question);
+            loop: while (true) {
+                int option = printMenu();
+                switch (option){
+                    case 1:
+                    case 2:
+                        question = QuestionCreator.createQuestion(option);
+                        break;
+                    case 3:
+                        ds.close();
+                        break loop;
+                }
+
+                System.out.println("Question message: " + question);
 
                 byte[] data = question.getBytes(); // Convert String into byte array
 
@@ -36,7 +49,8 @@ public class DnsClient {
                 ds.receive(incoming); // waiting to receive packet
 
                 // Convert receiving byte array into String
-                System.out.println("Received: " + new String(incoming.getData(), 0, incoming.getLength()));
+                answer = new String(incoming.getData(), 0, incoming.getLength());
+                System.out.println("Received answer: " + answer);
             }
         } catch (IOException e) {
             System.err.println(e);
@@ -45,6 +59,15 @@ public class DnsClient {
                 ds.close();
             }
         }
+    }
 
+    private static int printMenu(){
+        System.out.println("-------------------------------------------");
+        System.out.println("                DNS Client");
+        System.out.println("-------------------------------------------");
+        System.out.print(" 1. Resolve Domain Name\n 2. Resolve IP Address\n 3. Quit\nChoose your option: ");
+        Scanner in = new Scanner(System.in);
+        int option = in.nextInt();
+        return option;
     }
 }

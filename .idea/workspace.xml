@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb5dffda-20e3-491c-94af-7b078abc9f0b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/networking.iml" beforeDir="false" afterPath="$PROJECT_DIR$/networking.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/note.txt" beforeDir="false" afterPath="$PROJECT_DIR$/note.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/networking/client/QuestionCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/networking/client/QuestionCreator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/networking/server/AnswerCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/networking/server/AnswerCreator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/networking/server/DnsServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/networking/server/DnsServer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/DnsClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/DnsClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/QuestionCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/QuestionCreator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/AnswerCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/AnswerCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/DnsServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DnsServer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,14 +14,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.54788274">
+    <splitter split-orientation="horizontal" split-proportion="0.30423453">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/server/AnswerCreator.java">
+            <entry file="file://$PROJECT_DIR$/src/client/DnsClient.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2900">
-                  <caret line="152" column="33" selection-start-line="152" selection-start-column="33" selection-end-line="152" selection-end-column="33" />
+                <state relative-caret-position="120">
+                  <caret line="19" column="29" lean-forward="true" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -38,10 +30,10 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/client/DnsClient.java">
+            <entry file="file://$PROJECT_DIR$/src/client/QuestionCreator.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="200">
-                  <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+                <state relative-caret-position="374">
+                  <caret line="57" column="35" lean-forward="true" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -54,22 +46,10 @@
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/client/QuestionCreator.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="400">
-                  <caret line="23" selection-start-line="23" selection-end-line="23" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/server/DnsServer.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="504">
-                  <caret line="41" selection-start-line="41" selection-end-line="41" />
+                <state relative-caret-position="-16">
+                  <caret line="21" column="22" lean-forward="true" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -82,6 +62,18 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="180">
                   <caret line="9" column="56" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/server/AnswerCreator.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="160">
+                  <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -104,11 +96,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/DnsServer.java" />
-        <option value="$PROJECT_DIR$/src/client/QuestionCreator.java" />
         <option value="$PROJECT_DIR$/note.txt" />
-        <option value="$PROJECT_DIR$/src/server/AnswerCreator.java" />
         <option value="$PROJECT_DIR$/src/server/DnsServer.java" />
+        <option value="$PROJECT_DIR$/src/client/QuestionCreator.java" />
         <option value="$PROJECT_DIR$/src/client/DnsClient.java" />
+        <option value="$PROJECT_DIR$/src/server/AnswerCreator.java" />
       </list>
     </option>
   </component>
@@ -169,7 +161,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556522031531" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556525008997" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../JDBC" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -257,12 +249,12 @@
       <workItem from="1555857998254" duration="669000" />
       <workItem from="1555896353099" duration="10281000" />
       <workItem from="1555941452694" duration="5859000" />
-      <workItem from="1556521788025" duration="244000" />
+      <workItem from="1556521788025" duration="3328000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49434000" />
+    <option name="totallyTimeSpent" value="52518000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
@@ -348,26 +340,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/AnswerCreator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2900">
-          <caret line="152" column="33" selection-start-line="152" selection-start-column="33" selection-end-line="152" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/QuestionCreator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/note.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -377,8 +349,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/server/DnsServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        <state relative-caret-position="-16">
+          <caret line="21" column="22" lean-forward="true" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -387,8 +359,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/client/DnsClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+        <state relative-caret-position="120">
+          <caret line="19" column="29" lean-forward="true" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/QuestionCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="57" column="35" lean-forward="true" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/AnswerCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
