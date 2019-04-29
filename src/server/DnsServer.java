@@ -1,52 +1,47 @@
 package server;//import org.xbill.DNS.*;
 
 
+import com.mysql.cj.jdbc.Driver;
+
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.Properties;
 
 public class DnsServer {
-//    public static void main (String[] args) throws TextParseException {
-//        Record[] records = new Lookup("tinhte.vn", Type.A).run();
-//
-//
-//        for (int i = 0 ; i < records.length ; i++ ){
-//            ARecord aRecord = (ARecord) records[i];
-//            System.out.println("Host " + aRecord.getName() + " has IP address " + aRecord.getAddress());
-//
-//            System.out.println("Name: " + aRecord.getName());
-//            System.out.println("Address: " + aRecord.getAddress());
-//            System.out.println("Additional Name: " + aRecord.getAdditionalName());
-//            System.out.println("DClass: " + aRecord.getDClass());
-//            System.out.println("RRsetType: " + aRecord.getRRsetType());
-//            System.out.println("TTL: " + aRecord.getTTL());
-//            System.out.println("Type: " + aRecord.getType());
-//            System.out.println("Class: " + aRecord.getClass());
-//        }
 
     private final static int SERVER_PORT = 53;
     private static byte[] BUFFER = new byte[4096];
+    private static String URL = "jdbc:mysql://localhost:3306/dns?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    private static Connection connection;
 
-    public static void main (String[] args){
+    public static void main (String[] args) throws SQLException{
         DatagramSocket ds = null;
+        String answer;
+        connectDB();
+
         try {
             System.out.println("Binding to port " + SERVER_PORT + ", please wait  ...");
             ds = new DatagramSocket(SERVER_PORT); // Create Socket with port 53
             System.out.println("Server started ");
             System.out.println("Waiting for messages from Client ... ");
 
-            while (true) { // Tạo gói tin nhận
+            while (true) {
+                // Create receiving packet
                 DatagramPacket incoming = new DatagramPacket(BUFFER, BUFFER.length);
-                ds.receive(incoming); // Chờ nhận gói tin gởi đến
+                ds.receive(incoming); // waiting
 
                 // Lấy dữ liệu khỏi gói tin nhận
                 String message = new String(incoming.getData(), 0, incoming.getLength());
                 System.out.println("Received: " + message);
 
+                answer = AnswerCreator.createAnswer(connection, message);
+                byte[] data = answer.getBytes();
 
-
-                // Tạo gói tin gởi chứa dữ liệu vừa nhận được
-                DatagramPacket outsending = new DatagramPacket(message.getBytes(), incoming.getLength(),
+                // Create the answer packet then send back to client
+                DatagramPacket outsending = new DatagramPacket(data, data.length,
                         incoming.getAddress(), incoming.getPort());
                 ds.send(outsending);
             }
@@ -56,6 +51,27 @@ public class DnsServer {
             if (ds != null) {
                 ds.close();
             }
+        }
+    }
+
+    static void connectDB(){
+        Properties properties = new Properties();
+
+        properties.put("user", "vking34");
+        properties.put("password", "vking34");
+
+        try {
+            Driver driver = new Driver();
+
+            connection = driver.connect(URL, properties);
+
+            if (connection != null)
+                System.out.println("Connected to DB");
+            else
+                System.out.println("Failed to connect to DB");
+
+        } catch (SQLException e){
+            e.printStackTrace();
         }
     }
 }

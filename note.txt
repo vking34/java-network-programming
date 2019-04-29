@@ -2,3 +2,9 @@
 
 https://vietjack.com/java/lop_stringbuilder_trong_java.jsp
 
+# DNS java example
+
+http://www.xbill.org/dnsjava/dnsjava-current/examples.html
+
+# JDBC
+https://www.tutorialspoint.com/jdbc/jdbc-sample-code.htm

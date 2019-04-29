@@ -28,7 +28,7 @@ public class DnsClient {
                 // Create sending packet
                 DatagramPacket dp = new DatagramPacket(data, data.length, server, SERVER_PORT);
 
-                ds.send(dp); // Send gói tin sang Echo Server
+                ds.send(dp); // Send packet to Server
 
 
                 // Receiving packet

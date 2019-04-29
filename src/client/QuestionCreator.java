@@ -6,8 +6,17 @@ import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class QuestionCreator {
+
+    private static String getIdentification(){
+        int random = (int)(Math.random()* 1024 + 1);
+        return String.valueOf(random);
+    }
+
     public static String createQuestion() throws IOException {
-        StringBuilder question = new StringBuilder("0#00#");
+        StringBuilder question = new StringBuilder();
+        question.append(getIdentification());
+        question.append("#0#00#");
+
         System.out.print("Enter question count: ");
         Scanner in = new Scanner(System.in);
         int questionCount = in.nextInt();
