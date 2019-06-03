@@ -34,7 +34,7 @@ class QuestionCreator {
             question.append("#");
             System.out.println(String.format("Quenstion %d:", count));
             if (option == 1){
-                System.out.print("Enter domain name: ");
+                System.out.print(" Enter domain name: ");
                 String domainName = br.readLine();
                 question.append(domainName);
             }

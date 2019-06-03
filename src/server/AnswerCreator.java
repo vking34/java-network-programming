@@ -174,7 +174,8 @@ class AnswerCreator {
                     }
                 }
                 else { // resolve IP address
-                    Lookup lookup = new Lookup(fields[4 + k*3].concat(".in-addr.arpa."), type);
+                    String reverseIP = reverseIp(fields[4 + k*3]);
+                    Lookup lookup = new Lookup(reverseIP.concat(".in-addr.arpa."), type);
                     lookup.setResolver(RESOLVER);
                     Record[] records = lookup.run();
 
@@ -215,4 +216,9 @@ class AnswerCreator {
         return answer.toString();
     }
 
+
+    static String reverseIp(String ip){
+        String[] octets = ip.split("\\.");
+        return octets[3].concat(".").concat(octets[2]).concat(".").concat(octets[1]).concat(".").concat(octets[0]);
+    }
 }
